@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+# changed by copilot
 def z(x, y, B, λ):
     return B * (np.cos(np.pi * 2 * x / λ) * np.cos(np.pi * 2 * y / λ))
 
