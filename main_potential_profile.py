@@ -7,7 +7,7 @@ def z(x, y, B, λ):
 
 # 초기 설정
 atom_lattice = 2  # atom_lattice 값 수정
-tip_lattice = 3
+tip_lattice = 3 # tip_lattice 값 수정
 atom_limit = 1000  # 그냥 radius보다 충분히 큰 숫자
 radius_multiple = np.linspace(1, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정입니다.
 
