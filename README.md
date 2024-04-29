@@ -1,1 +1,1 @@
-Lj potential estimated by sin,cos
+###Lj potential estimated by sin,cos
