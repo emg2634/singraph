@@ -29,8 +29,8 @@ for radius_multiplier in tqdm(radius_multiple, desc='Calculating max-min potenti
     # 각 반경에서의 함수값 합 계산
     z_values_sum=0
     z_values = []
-    for x_start in np.arange(0, atom_lattice, 0.1):  # x가 0.1씩 변하도록 수정
-        for y_start in np.arange(0,atom_lattice,0.1):
+    for x_start in np.arange(0, atom_lattice+0.1, 0.1):  # x가 0.1씩 변하도록 수정
+        for y_start in np.arange(0,atom_lattice+0.1,0.1): #y가 0.1씩 변하도록 수정
             for x, y in tip_base:
                 if np.sqrt((x) ** 2 + (y) ** 2) <= radius:
                     z_values_sum += z(x_start + x, y_start + y, B, λ)
