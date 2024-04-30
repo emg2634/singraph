@@ -8,9 +8,9 @@ def z(x, y, B, λ):
 
 
 # 초기 설정
-atom_lattice = 2  # atom_lattice 값 수정
-tip_lattice = 3
-atom_limit = 1000  # 그냥 atom_lattice의 배수보다 충분히 큰 숫자
+atom_lattice = 1  # atom_lattice 값 수정
+tip_lattice = 1
+
 atom_number = np.linspace(1, 50, 50, dtype=int)  # 원자 개수를 1부터 30까지 변화시킬 예정입니다.
 
 max_min_potentials = []  # 각 원자 수에서의 최대-최소 잠재 에너지를 저장할 리스트
