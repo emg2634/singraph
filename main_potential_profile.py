@@ -9,7 +9,7 @@ def z(x, y, B, λ):
 atom_lattice = 2  # atom_lattice 값 수정
 tip_lattice = 1.5 # tip_lattice 값 수정
 atom_limit = 100  # radius_multiple와 tip_lattice 곱보다 큰 숫자
-radius_multiple = np.linspace(1, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정, 원하는 반지름은 수정가능
+radius_multiple = np.linspace(0, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정, 원하는 반지름은 수정가능
 
 max_min_potentials = []  # 각 반경에서의 최대-최소 잠재 에너지를 저장할 리스트
 
