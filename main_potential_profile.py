@@ -7,8 +7,8 @@ def z(x, y, B, λ):
 
 # 초기 설정
 atom_lattice = 2  # atom_lattice 값 수정
-tip_lattice = 3 # tip_lattice 값 수정
-atom_limit = 1000  # 그냥 radius보다 충분히 큰 숫자
+tip_lattice = 1.5 # tip_lattice 값 수정
+atom_limit = 100  # 그냥 radius보다 충분히 큰 숫자
 radius_multiple = np.linspace(1, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정입니다.
 
 max_min_potentials = []  # 각 반경에서의 최대-최소 잠재 에너지를 저장할 리스트
@@ -27,12 +27,13 @@ for radius_multiplier in tqdm(radius_multiple, desc='Calculating max-min potenti
     min_z_value_sum = float('inf')  # 최소값 초기화
 
     # 각 반경에서의 함수값 합 계산
+    z_values_sum=0
     z_values = []
     for x_start in np.arange(0, atom_lattice, 0.1):  # x가 0.1씩 변하도록 수정
         for y_start in np.arange(0,atom_lattice,0.1):
             for x, y in tip_base:
-                if np.sqrt((x_start + x) ** 2 + (y_start + y) ** 2) <= radius:
-                    z_values_sum = sum([z(x_start + x, y_start + y, B, λ) for x, y in tip_base if np.sqrt((x_start + x) ** 2 + (y_start + y) ** 2) <= radius])
+                if np.sqrt((x) ** 2 + (y) ** 2) <= radius:
+                    z_values_sum += z(x_start + x, y_start + y, B, λ)
                     z_values.append(z_values_sum)
 
     # 최대값과 최소값을 계산합니다.
