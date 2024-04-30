@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 # 함수 정의
 def z(x, y, B, λ):
-    return B * (np.cos(np.pi * 2 * x / λ) * np.cos(np.pi * 2 * y / λ))
+    return B * (np.cos(np.pi * 2 * x / λ) + np.cos(np.pi * 2 * y / λ))
 
 # 초기 설정
 atom_lattice = 2  # atom_lattice 값 수정
