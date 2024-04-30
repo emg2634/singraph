@@ -18,8 +18,6 @@ B = 0.01  # 적절한 B 값 설정
 
 # tip 좌표 베이스 계산
 tip_base = [(x, y) for x in np.arange(-atom_limit, atom_limit+1, tip_lattice) for y in np.arange(-atom_limit, atom_limit+1, tip_lattice)]
-tip_base.insert(0, (0.0, 0.0))  # tip 중심 추가
-
 # 반지름별 최대-최소 잠재 에너지 계산
 for radius_multiplier in tqdm(radius_multiple, desc='Calculating max-min potentials'):
     radius = tip_lattice * radius_multiplier  # tip 원 반지름
@@ -27,18 +25,16 @@ for radius_multiplier in tqdm(radius_multiple, desc='Calculating max-min potenti
     min_z_value_sum = float('inf')  # 최소값 초기화
 
     # 각 반경에서의 함수값 합 계산
-    z_values_sum=0
-    z_values = []
-    for x_start in np.arange(0, atom_lattice+0.1, 0.1):  # x가 0.1씩 변하도록 수정
-        for y_start in np.arange(0,atom_lattice+0.1,0.1): #y가 0.1씩 변하도록 수정
+
+    for x_start in np.arange(0, atom_lattice, 0.1):  # x가 0.1씩 변하도록 수정
+        for y_start in np.arange(0,atom_lattice,0.1): #y가 0.1씩 변하도록 수정
+            z_values_sum = 0
             for x, y in tip_base:
                 if np.sqrt((x) ** 2 + (y) ** 2) <= radius:
-                    z_values_sum += z(x_start + x, y_start + y, B, λ)
-                    z_values.append(z_values_sum)
-
-    # 최대값과 최소값을 계산합니다.
-    max_z_value_sum = max(z_values)
-    min_z_value_sum = min(z_values)
+                    z_value = z(x + x_start, y + y_start, B, λ)
+                    z_values_sum += z_value
+            max_z_value_sum = max(max_z_value_sum, z_values_sum)  # Update the maximum potential energy
+            min_z_value_sum = min(min_z_value_sum, z_values_sum)  # Update the minimum potential energy
 
     # 최대-최소값을 리스트에 추가
     max_min_potentials.append(max_z_value_sum - min_z_value_sum)
