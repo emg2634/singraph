@@ -8,8 +8,8 @@ def z(x, y, B, λ):
 # 초기 설정
 atom_lattice = 2  # atom_lattice 값 수정
 tip_lattice = 1.5 # tip_lattice 값 수정
-atom_limit = 100  # 그냥 radius보다 충분히 큰 숫자
-radius_multiple = np.linspace(1, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정입니다.
+atom_limit = 100  # radius_multiple와 tip_lattice 곱보다 큰 숫자
+radius_multiple = np.linspace(1, 30, 30)  # 반지름을 1부터 n까지 변화시킬 예정, 원하는 반지름은 수정가능
 
 max_min_potentials = []  # 각 반경에서의 최대-최소 잠재 에너지를 저장할 리스트
 
@@ -17,7 +17,7 @@ B = 0.01  # 적절한 B 값 설정
 λ = atom_lattice
 
 # tip 좌표 베이스 계산
-tip_base = [(x, y) for s in (1, -1) for x in np.arange(tip_lattice, atom_limit, tip_lattice) for y in np.arange(tip_lattice, atom_limit, tip_lattice)]
+tip_base = [(x, y) for x in np.arange(-atom_limit, atom_limit+1, tip_lattice) for y in np.arange(-atom_limit, atom_limit+1, tip_lattice)]
 tip_base.insert(0, (0.0, 0.0))  # tip 중심 추가
 
 # 반지름별 최대-최소 잠재 에너지 계산
