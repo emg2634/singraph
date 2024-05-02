@@ -30,8 +30,9 @@ for num_atoms in atom_number:
                 np.arange(0, tip_lattice * num_atoms, tip_lattice)]  # tip_base 초기화
 
     for x_start in np.arange(0, atom_lattice, 0.1):
+        z_values_sum = 0
         for y_start in np.arange(0, atom_lattice, 0.1):
-            z_values_sum = 0  # Initialize z_values_sum for each combination of x and y
+
             for x_tip, y_tip in tip_base:
                 z_value = z(x_tip + x_start, y_tip + y_start, B, λ)  # Calculate the z-value for the current atom
                 z_values_sum += z_value  # Add the z-value to the sum
