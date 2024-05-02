@@ -8,8 +8,8 @@ def z(x, y, B, λ):
 
 
 # 초기 설정
-atom_lattice = 3  # atom_lattice 값 수정
-tip_lattice = 5 # tip_lattice 값 수정
+atom_lattice = 2  # atom_lattice 값 수정
+tip_lattice = 1.5 # tip_lattice 값 수정
 
 atom_number = np.linspace(1, 50, 50, dtype=int)  # 원자 개수를 1부터 30까지 변화시킬 예정입니다.
 
