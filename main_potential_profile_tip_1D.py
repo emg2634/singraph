@@ -8,14 +8,14 @@ def z(x, y, B, λ):
 
 
 # 초기 설정
-atom_lattice = 2  # atom_lattice 값 수정
-tip_lattice = 3 # tip_lattice 값 수정
+atom_lattice = 3  # atom_lattice 값 수정
+tip_lattice = 5 # tip_lattice 값 수정
 
 atom_number = np.linspace(1, 50, 50, dtype=int)  # 원자 개수를 1부터 30까지 변화시킬 예정입니다.
 
 max_min_potentials = []  # 각 원자 수에서의 최대-최소 잠재 에너지를 저장할 리스트
 
-B = 0.01  # 적절한 B 값 설정
+B = 0.1  # 적절한 B 값 설정
 λ = atom_lattice
 
 for num_atoms in atom_number:
